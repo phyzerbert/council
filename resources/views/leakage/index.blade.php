@@ -62,6 +62,7 @@
                         <th>T4 Complete</th>
                         <th>X</th>
                         <th>Y</th>
+                        <th>Area</th>
                         <th>Date</th>
                         <th>Date Repaired</th>
                         <th>Actions</th>
@@ -84,6 +85,7 @@
                             </td>
                             <td class="x">{{$item->x}}</td>
                             <td class="y">{{$item->y}}</td>
+                            <td class="area">{{$item->area}}</td>
                             <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
                             <td>{{date('Y-m-d', strtotime($item->updated_at))}}</td>
                             <td>
