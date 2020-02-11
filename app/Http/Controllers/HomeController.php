@@ -29,7 +29,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $zones = Zone::all();
         $woas = Woa::all();
@@ -38,9 +38,14 @@ class HomeController extends Controller
         $stypes = Stype::all();
         $mod = new Leakage();
 
+        if($request->get('zone_id') != '') {
+            $zone_id = $request->get('zone_id');
+            $mod = $mod->where('zone_id', $zone_id);
+        }
+
         $data = $mod->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('leakage.index', compact('data', 'zones', 'woas', 'dmas', 'types', 'stypes'));
+        return view('leakage.index', compact('data', 'zones', 'woas', 'dmas', 'types', 'stypes', 'zone_id'));
     }
 
     public function add($zone_id) {
@@ -64,6 +69,23 @@ class HomeController extends Controller
             'y' => $request->get('y'),
         ]);
         return redirect('home')->with('success', 'Successfully Sent!');
+    }
+
+    public function update(Request $request) {
+        
+        $item = Leakage::find($request->get('id'));
+
+        $item->zone_id = $request->get('zone_id');
+        $item->woa_id = $request->get('woa_id');
+        $item->dma_id = $request->get('dma_id');
+        $item->type_id = $request->get('type_id');
+        $item->stype_id = $request->get('stype_id');
+        $item->is_t4_completed = $request->get('is_t4_completed');
+        $item->x = $request->get('x');
+        $item->y = $request->get('y');
+
+        $item->save();
+        return back()->with('success', 'Updated Successfully!');
     }
 
     public function delete($id) {

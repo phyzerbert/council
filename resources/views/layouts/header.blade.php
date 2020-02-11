@@ -9,20 +9,16 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
-
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Zone 1</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Zone 2</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Zone 3</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Zone 4</a>
-            </li>
+            @php
+                $top_zones = \App\Models\Zone::all();
+            @endphp
+            @foreach ($top_zones as $item)
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{route('home').'?zone_id='.$item->id}}">{{$item->name}}</a>
+                </li>
+            @endforeach
+            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Library</a>
                 <div class="dropdown-menu active" aria-labelledby="navbarDropdown">

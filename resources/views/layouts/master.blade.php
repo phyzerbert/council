@@ -29,8 +29,6 @@
         <div class="container">
             @yield('content')
         </div>
-
-        @include('layouts.header')
     </div>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     @yield('script')
