@@ -15,7 +15,7 @@ Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/home', 'HomeController@index')->name('home');
 Route::get('/leakage/add/{zone_id}', 'HomeController@add')->name('leakage.add');
 Route::post('/leakage/save', 'HomeController@save')->name('leakage.save');
 Route::post('/leakage/update', 'HomeController@update')->name('leakage.update');

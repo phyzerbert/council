@@ -20,11 +20,36 @@
                 </div>
                 @endif
                 <br>
-                <h1 class="float-left">Leakage Database</h1><br>
-                <div class="float-right">
-                    <a href="{{route('leakage.export')}}" class="btn btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
-                    <a href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a>
-                </div><br>
+                <h1 class="">Leakage Database</h1><br>
+                <div class="clearfix">
+                    <form action="" method="post" class="form-inline float-left">
+                        @csrf
+                        <select name="zone_id" id="filter_zone" class="form-control form-control-sm">
+                            <option disabled selected value="">Select a Zone</option>
+                            @foreach ($zones as $item)
+                                <option value="{{$item->id}}" @if($zone_id == $item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                        <select name="woa_id" id="filter_woa" class="form-control form-control-sm ml-md-2">
+                            <option disabled selected value="">Select a WOA</option>
+                            @foreach ($woas as $item)
+                                <option value="{{$item->id}}" @if($woa_id == $item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                        <select name="dma_id" id="filter_dma" class="form-control form-control-sm ml-md-2">
+                            <option disabled selected value="">Select a DMA</option>
+                            @foreach ($dmas as $item)
+                                <option value="{{$item->id}}" @if($dma_id == $item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary ml-2">Search</button>
+                        <button type="reset" class="btn btn-sm btn-danger ml-2">Reset</button>
+                    </form>
+                    <div class="float-right">
+                        <a href="{{route('leakage.export')}}" class="btn btn-sm btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary mb-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a>
+                    </div>
+                </div>
             </div>
             <table class="table table-striped" id="leakageTable">
                 <thead>
