@@ -17,14 +17,14 @@ class Leakage extends Model
     }
 
     public function woa() {
-        return $this->belongsTo(Dma::class);
+        return $this->belongsTo(Woa::class);
     }
 
     public function type() {
-        return $this->belongsTo(Dma::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function stype() {
-        return $this->belongsTo(Dma::class);
+        return $this->belongsTo(Stype::class);
     }
 }

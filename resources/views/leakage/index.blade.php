@@ -42,6 +42,18 @@
                                 <option value="{{$item->id}}" @if($dma_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
+                        <select name="type_id" id="filter_type" class="form-control form-control-sm ml-md-2">
+                            <option disabled selected value="">Select a Type</option>
+                            @foreach ($types as $item)
+                                <option value="{{$item->id}}" @if($type_id == $item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                        <select name="stype_id" id="filter_stype" class="form-control form-control-sm ml-md-2">
+                            <option disabled selected value="">Surface Type</option>
+                            @foreach ($stypes as $item)
+                                <option value="{{$item->id}}" @if($stype_id == $item->id) selected @endif>{{$item->name}}</option>
+                            @endforeach
+                        </select>
                         <button type="submit" class="btn btn-sm btn-primary ml-2">Search</button>
                         <button type="reset" class="btn btn-sm btn-danger ml-2">Reset</button>
                     </form>

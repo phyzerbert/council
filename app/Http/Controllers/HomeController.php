@@ -41,7 +41,7 @@ class HomeController extends Controller
         $stypes = Stype::all();
         $mod = new Leakage();
 
-        $zone_id = $woa_id = $dma_id = '';
+        $zone_id = $woa_id = $dma_id = $type_id = $stype_id = '';
 
         if($request->get('zone_id') != '') {
             $zone_id = $request->get('zone_id');
@@ -58,9 +58,19 @@ class HomeController extends Controller
             $mod = $mod->where('dma_id', $dma_id);
         }
 
+        if($request->get('type_id') != '') {
+            $type_id = $request->get('type_id');
+            $mod = $mod->where('type_id', $type_id);
+        }
+
+        if($request->get('stype_id') != '') {
+            $stype_id = $request->get('stype_id');
+            $mod = $mod->where('stype_id', $stype_id);
+        }
+
         $data = $mod->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('leakage.index', compact('data', 'zones', 'woas', 'dmas', 'types', 'stypes', 'zone_id', 'woa_id', 'dma_id'));
+        return view('leakage.index', compact('data', 'zones', 'woas', 'dmas', 'types', 'stypes', 'zone_id', 'woa_id', 'dma_id', 'type_id', 'stype_id'));
     }
 
     public function add($zone_id) {
