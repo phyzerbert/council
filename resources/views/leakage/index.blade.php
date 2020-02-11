@@ -57,9 +57,11 @@
                         <th>Zone</th>
                         <th>WOA</th>
                         <th>DMA</th>
+                        <th>Type</th>
+                        <th>Surface Type</th>
+                        <th>T4 Complete</th>
                         <th>X</th>
                         <th>Y</th>
-                        <th>Comment</th>
                         <th>Date</th>
                         <th>Date Repaired</th>
                         <th>Actions</th>
@@ -68,15 +70,20 @@
                 <tbody>
                     @forelse ($data as $item)
                         <tr>
-                            <input type="hidden" name="" class="type" value="{{$item->type_id}}" />
-                            <input type="hidden" name="" class="stype" value="{{$item->stype_id}}" />
-                            <input type="hidden" name="" class="is_t4_completed" value="{{$item->is_t4_completed}}" />
                             <td class="zone" data-id="{{$item->zone_id}}">{{$item->zone->name ?? ''}}</td>
                             <td class="woa" data-id="{{$item->woa_id}}">{{$item->woa->name ?? ''}}</td>
                             <td class="dma" data-id="{{$item->dma_id}}">{{$item->dma->name ?? ''}}</td>
+                            <td class="type" data-id="{{$item->type_id}}">{{$item->type->name ?? ''}}</td>
+                            <td class="stype" data-id="{{$item->stype_id}}">{{$item->stype->name ?? ''}}</td>
+                            <td class="is_t4_complete" data-value="{{$item->is_t4_complete}}">
+                                @if($item->is_t4_complete)
+                                    <span class="badget badge-primary">Yes</span>
+                                @else
+                                    <span class="badget badge-danger">No</span>
+                                @endif
+                            </td>
                             <td class="x">{{$item->x}}</td>
                             <td class="y">{{$item->y}}</td>
-                            <td class="comment">{{$item->comment}}</td>
                             <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
                             <td>{{date('Y-m-d', strtotime($item->updated_at))}}</td>
                             <td>
@@ -333,9 +340,9 @@
                 let zone_id = $(this).parents('tr').find('.zone').data('id');
                 let woa_id = $(this).parents('tr').find('.woa').data('id');
                 let dma_id = $(this).parents('tr').find('.dma').data('id');
-                let type_id = $(this).parents('tr').find('.type').val();
-                let stype_id = $(this).parents('tr').find('.stype').val();
-                let is_t4_completed = $(this).parents('tr').find('.is_t4_completed').val();
+                let type_id = $(this).parents('tr').find('.type').data('id');
+                let stype_id = $(this).parents('tr').find('.stype').data('id');
+                let is_t4_completed = $(this).parents('tr').find('.is_t4_completed').data('value');
                 let x = $(this).parents('tr').find('.x').text();
                 let y = $(this).parents('tr').find('.y').text();
 
