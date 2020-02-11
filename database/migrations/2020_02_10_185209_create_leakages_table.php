@@ -15,6 +15,7 @@ class CreateLeakagesTable extends Migration
     {
         Schema::create('leakages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->decimal('area', 8, 2)->nullable();
             $table->integer('zone_id')->nullable();
             $table->integer('woa_id')->nullable();
             $table->integer('dma_id')->nullable();

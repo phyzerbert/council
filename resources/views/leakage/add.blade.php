@@ -27,25 +27,21 @@
         <p class="lead">Fill in the requisite fields below and hit send.</p>
     </div>
     <div id="container" class="col-md-6 order-md-2 mb-4 mx-auto">
-
-        <div class="row mb-3" id="calculator">
-            <div class="col-md-6">
-                <input type="number" name="" id="firstNumber" class="form-control" placeholder="First Number">
-            </div>
-            <div class="col-md-6">
-                <input type="number" name="" id="secondNumber" class="form-control" placeholder="Second Number">
-            </div>
-            <div class="col-md-12 clearfix mt-2">
-                <button class="btn btn-primary float-left" onclick="multiplyBy()">Multiply</button>
-                <button class="btn btn-primary ml-2 float-left" onclick="divideBy()">Division</button>
-                <input type="number" name="" id="result" class="form-control col-4 ml-auto" placeholder="Result" readonly>
-            </div>
-        </div>
-
-        <hr />
-
         <form method="POST" action="{{route('leakage.save')}}">
             @csrf
+            <div class="row mb-3" id="calculator">
+                <div class="col-md-6">
+                    <input type="number" name="" id="firstNumber" class="form-control" placeholder="First Number">
+                </div>
+                <div class="col-md-6">
+                    <input type="number" name="" id="secondNumber" class="form-control" placeholder="Second Number">
+                </div>
+                <div class="col-md-12 clearfix mt-2">
+                    <button type="button" class="btn btn-primary float-left" onclick="multiplyBy()">Multiply</button>
+                    <button type="button" class="btn btn-primary ml-2 float-left" onclick="divideBy()">Division</button>
+                    <input type="number" name="area" id="result" class="form-control col-4 ml-auto" placeholder="Result" readonly>
+                </div>
+            </div>
             <div class="form-group mt-4">
                 <label>Select Zone</label>
                 <select class="form-control" name="zone_id" required>

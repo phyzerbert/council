@@ -74,6 +74,7 @@ class HomeController extends Controller
 
     public function save(Request $request) {
         Leakage::create([
+            'area' => $request->get('area'),
             'zone_id' => $request->get('zone_id'),
             'woa_id' => $request->get('woa_id'),
             'dma_id' => $request->get('dma_id'),
