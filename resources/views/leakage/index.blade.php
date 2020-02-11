@@ -77,9 +77,9 @@
                             <td class="stype" data-id="{{$item->stype_id}}">{{$item->stype->name ?? ''}}</td>
                             <td class="is_t4_complete" data-value="{{$item->is_t4_complete}}">
                                 @if($item->is_t4_complete)
-                                    <span class="badget badge-primary">Yes</span>
+                                    <span class="badge badge-primary">Yes</span>
                                 @else
-                                    <span class="badget badge-danger">No</span>
+                                    <span class="badge badge-danger">No</span>
                                 @endif
                             </td>
                             <td class="x">{{$item->x}}</td>
