@@ -12,6 +12,9 @@ use App\Models\Type;
 use App\Models\Stype;
 use App\User;
 
+use Excel;
+use App\Exports\LeakagesExport;
+
 class HomeController extends Controller
 {
     /**
@@ -91,5 +94,9 @@ class HomeController extends Controller
     public function delete($id) {
         Leakage::destroy($id);
         return back()->with('success', 'Deleted Successfully!');
+    }
+
+    public function export(Request $request) {
+        return Excel::download(new LeakagesExport, 'database.xlsx');
     }
 }

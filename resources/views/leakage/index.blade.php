@@ -21,7 +21,10 @@
                 @endif
                 <br>
                 <h1 class="float-left">Leakage Database</h1><br>
-                <div class="float-right"><a href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a></div><br>
+                <div class="float-right">
+                    <a href="{{route('leakage.export')}}" class="btn btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
+                    <a href="javascript:void(0);" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a>
+                </div><br>
             </div>
             <table class="table table-striped" id="leakageTable">
                 <thead>

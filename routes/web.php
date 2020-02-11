@@ -20,3 +20,4 @@ Route::get('/leakage/add/{zone_id}', 'HomeController@add')->name('leakage.add');
 Route::post('/leakage/save', 'HomeController@save')->name('leakage.save');
 Route::post('/leakage/update', 'HomeController@update')->name('leakage.update');
 Route::get('/leakage/delete/{id}', 'HomeController@delete')->name('leakage.delete');
+Route::get('/leakage/export', 'HomeController@export')->name('leakage.export');
