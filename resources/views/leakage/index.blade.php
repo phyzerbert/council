@@ -89,8 +89,8 @@
                             <td class="dma" data-id="{{$item->dma_id}}">{{$item->dma->name ?? ''}}</td>
                             <td class="type" data-id="{{$item->type_id}}">{{$item->type->name ?? ''}}</td>
                             <td class="stype" data-id="{{$item->stype_id}}">{{$item->stype->name ?? ''}}</td>
-                            <td class="is_t4_complete" data-value="{{$item->is_t4_complete}}">
-                                @if($item->is_t4_complete)
+                            <td class="is_t4_completed" data-value="{{$item->is_t4_completed}}">
+                                @if($item->is_t4_completed)
                                     <span class="badge badge-primary">Yes</span>
                                 @else
                                     <span class="badge badge-danger">No</span>
@@ -374,6 +374,8 @@
                 let is_t4_completed = $(this).parents('tr').find('.is_t4_completed').data('value');
                 let x = $(this).parents('tr').find('.x').text();
                 let y = $(this).parents('tr').find('.y').text();
+
+                console.log(is_t4_completed);
 
                 $("#editForm .id").val(id);
                 $("#editForm .zone").val(zone_id);
