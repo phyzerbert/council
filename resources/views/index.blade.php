@@ -7,20 +7,22 @@
 @endsection
 
 @section('content')
-    <div class="card-deck mb-3 text-center">
-        @foreach ($data as $item)            
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{$item->name}}</h4>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            @foreach ($data as $item)            
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{$item->name}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{$item->rate}} % <br> 
+                            <br>UFW<small class="text-muted"></small></h1>
+                        <ul class="list-unstyled mt-3 mb-4"></ul>
+                        <a href="{{route('leakage.add', $item->id)}}" class="btn btn-lg btn-block btn-primary">GO</a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">{{$item->rate}} % <br> 
-                        <br>UFW<small class="text-muted"></small></h1>
-                    <ul class="list-unstyled mt-3 mb-4"></ul>
-                    <a href="{{route('leakage.add', $item->id)}}" class="btn btn-lg btn-block btn-primary">GO</a>
-                </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+        @include('layouts.footer')
     </div>
-    @include('layouts.footer')
 @endsection
