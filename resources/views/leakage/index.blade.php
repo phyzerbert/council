@@ -197,7 +197,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Comment</label>
                             <div class="col-md-9">
-                                <textarea name="comment" id="" class="form-control" rows="3"></textarea>
+                                <textarea name="comment" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -308,7 +308,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Comment</label>
                             <div class="col-md-9">
-                                <textarea name="comment" id="" class="form-control comment" rows="3"></textarea>
+                                <textarea name="comment" class="form-control comment" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
