@@ -55,7 +55,7 @@
                             @endforeach
                         </select>
                         <button type="submit" class="btn btn-sm btn-primary ml-2">Search</button>
-                        <button type="reset" class="btn btn-sm btn-danger ml-2">Reset</button>
+                        <button type="button" class="btn btn-sm btn-danger ml-2" id="btn_reset">Reset</button>
                     </form>
                     <div class="float-right">
                         <a href="{{route('leakage.export')}}" class="btn btn-sm btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
@@ -75,6 +75,7 @@
                         <th>X</th>
                         <th>Y</th>
                         <th>Area</th>
+                        <th>Comment</th>
                         <th>Date</th>
                         <th>Date Repaired</th>
                         <th>Actions</th>
@@ -98,6 +99,7 @@
                             <td class="x">{{$item->x}}</td>
                             <td class="y">{{$item->y}}</td>
                             <td class="area">{{$item->area}}</td>
+                            <td class="comment">{{$item->comment}}</td>
                             <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
                             <td>{{date('Y-m-d', strtotime($item->updated_at))}}</td>
                             <td>
@@ -190,6 +192,12 @@
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Comment</label>
+                            <div class="col-md-9">
+                                <textarea name="comment" id="" class="form-control" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -298,6 +306,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Comment</label>
+                            <div class="col-md-9">
+                                <textarea name="comment" id="" class="form-control comment" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-md-9 offset-md-3">
                                 <button type="button" class="btn btn-sm btn-primary btn-acquire" onclick="getLocation()">Acquire Co-Ords</button>
                             </div>
@@ -356,6 +370,7 @@
                 let dma_id = $(this).parents('tr').find('.dma').data('id');
                 let type_id = $(this).parents('tr').find('.type').data('id');
                 let stype_id = $(this).parents('tr').find('.stype').data('id');
+                let comment = $(this).parents('tr').find('.comment').text();
                 let is_t4_completed = $(this).parents('tr').find('.is_t4_completed').data('value');
                 let x = $(this).parents('tr').find('.x').text();
                 let y = $(this).parents('tr').find('.y').text();
@@ -367,11 +382,20 @@
                 $("#editForm .type").val(type_id);
                 $("#editForm .stype").val(stype_id);
                 $("#editForm .is_t4_completed").val(is_t4_completed);
+                $("#editForm .comment").val(comment);
                 $("#editForm .latitude").val(x);
                 $("#editForm .longitude").val(y);
 
                 $("#editModal").modal();
-            });            
+            }); 
+
+            $("#btn_reset").click(function () {
+                $("#filter_zone").val('');
+                $("#filter_woa").val('');
+                $("#filter_dma").val('');
+                $("#filter_type").val('');
+                $("#filter_stype").val('');
+            })
         });
     </script>
 @endsection

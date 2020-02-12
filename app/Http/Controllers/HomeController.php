@@ -91,6 +91,7 @@ class HomeController extends Controller
             'type_id' => $request->get('type_id'),
             'stype_id' => $request->get('stype_id'),
             'is_t4_completed' => $request->get('is_t4_completed'),
+            'comment' => $request->get('comment'),
             'x' => $request->get('x'),
             'y' => $request->get('y'),
         ]);
@@ -107,6 +108,7 @@ class HomeController extends Controller
         $item->type_id = $request->get('type_id');
         $item->stype_id = $request->get('stype_id');
         $item->is_t4_completed = $request->get('is_t4_completed');
+        $item->comment = $request->get('comment');
         $item->x = $request->get('x');
         $item->y = $request->get('y');
 

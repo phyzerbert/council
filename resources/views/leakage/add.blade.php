@@ -91,7 +91,6 @@
                 </select>
             </div>
 
-
             <div class="form-group">
                 <label>T4 Complete</label>
                 <select class="form-control" name="is_t4_completed">
@@ -99,6 +98,11 @@
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label>Comment</label>
+                <textarea class="form-control" name="comment" rows="3" placeholder="Comment"></textarea>
             </div>
 
 
