@@ -25,6 +25,7 @@ class LeakagesExport implements FromArray, WithHeadings
             $data[$i]['type'] = $item->type->name ?? '';
             $data[$i]['stype'] = $item->stype->name ?? '';
             $data[$i]['is_t4_complete'] = $item->is_t4_complete ? 'Yes' : 'No';
+            $data[$i]['comment'] = $item->comment;
             $data[$i]['x'] = $item->x;
             $data[$i]['y'] = $item->y;
             $data[$i]['created_date'] = date('d/m/Y', strtotime($item->created_at));
@@ -45,6 +46,7 @@ class LeakagesExport implements FromArray, WithHeadings
             'Type',
             'Surface Type',
             'T4 Complete',
+            'Comment',
             'X',
             'Y',
             'Created Date',
