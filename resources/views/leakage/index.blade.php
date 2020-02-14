@@ -60,66 +60,68 @@
                                 <option value="{{$item->id}}" @if($stype_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <button type="submit" class="btn btn-sm btn-primary ml-2 mt-2">Search</button>
+                        <button type="submit" class="btn btn-sm btn-primary ml-0 ml-md-2 mt-2">Search</button>
                         <button type="button" class="btn btn-sm btn-danger ml-2 mt-2" id="btn_reset">Reset</button>
                     </form>
                     <div class="float-right">
-                        <a href="{{route('leakage.export')}}" class="btn btn-sm btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
-                        <a href="javascript:void(0);" class="btn btn-sm btn-primary mb-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a>
+                        <a href="{{route('leakage.export')}}" class="btn btn-sm btn-info mt-2"><span class="fa fa-plus"></span> Export</a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-primary mt-2" data-toggle="modal" data-target="#addModal"><span class="fa fa-plus"></span> Add New</a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped" id="leakageTable">
-                <thead>
-                    <tr>
-                        <th>Zone</th>
-                        <th>WOA</th>
-                        <th>DMA</th>
-                        <th>Type</th>
-                        <th>Surface Type</th>
-                        <th>T4 Complete</th>
-                        <th>X</th>
-                        <th>Y</th>
-                        <th>Area</th>
-                        <th>Comment</th>
-                        <th>Date</th>
-                        <th>Date Repaired</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($data as $item)
+            <div class="table-responsive">
+                <table class="table table-striped mt-2" id="leakageTable">
+                    <thead>
                         <tr>
-                            <td class="zone" data-id="{{$item->zone_id}}">{{$item->zone->name ?? ''}}</td>
-                            <td class="woa" data-id="{{$item->woa_id}}">{{$item->woa->name ?? ''}}</td>
-                            <td class="dma" data-id="{{$item->dma_id}}">{{$item->dma->name ?? ''}}</td>
-                            <td class="type" data-id="{{$item->type_id}}">{{$item->type->name ?? ''}}</td>
-                            <td class="stype" data-id="{{$item->stype_id}}">{{$item->stype->name ?? ''}}</td>
-                            <td class="is_t4_completed" data-value="{{$item->is_t4_completed}}">
-                                @if($item->is_t4_completed)
-                                    <span class="badge badge-primary">Yes</span>
-                                @else
-                                    <span class="badge badge-danger">No</span>
-                                @endif
-                            </td>
-                            <td class="x">{{$item->x}}</td>
-                            <td class="y">{{$item->y}}</td>
-                            <td class="area">{{$item->area}}</td>
-                            <td class="comment">{{$item->comment}}</td>
-                            <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
-                            <td>{{date('Y-m-d', strtotime($item->updated_at))}}</td>
-                            <td>
-                                <a href="javascript:;" data-id="{{$item->id}}" class="btn btn-sm btn-primary btn-edit">Edit</a>
-                                <a href="{{route('leakage.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
-                            </td>
+                            <th>Zone</th>
+                            <th>WOA</th>
+                            <th>DMA</th>
+                            <th>Type</th>
+                            <th>Surface Type</th>
+                            <th>T4 Complete</th>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>Area</th>
+                            <th>Comment</th>
+                            <th>Date</th>
+                            <th>Date Repaired</th>
+                            <th>Actions</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="10" align="center">No Data</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($data as $item)
+                            <tr>
+                                <td class="zone" data-id="{{$item->zone_id}}">{{$item->zone->name ?? ''}}</td>
+                                <td class="woa" data-id="{{$item->woa_id}}">{{$item->woa->name ?? ''}}</td>
+                                <td class="dma" data-id="{{$item->dma_id}}">{{$item->dma->name ?? ''}}</td>
+                                <td class="type" data-id="{{$item->type_id}}">{{$item->type->name ?? ''}}</td>
+                                <td class="stype" data-id="{{$item->stype_id}}">{{$item->stype->name ?? ''}}</td>
+                                <td class="is_t4_completed" data-value="{{$item->is_t4_completed}}">
+                                    @if($item->is_t4_completed)
+                                        <span class="badge badge-primary">Yes</span>
+                                    @else
+                                        <span class="badge badge-danger">No</span>
+                                    @endif
+                                </td>
+                                <td class="x">{{$item->x}}</td>
+                                <td class="y">{{$item->y}}</td>
+                                <td class="area">{{$item->area}}</td>
+                                <td class="comment">{{$item->comment}}</td>
+                                <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
+                                <td>{{date('Y-m-d', strtotime($item->updated_at))}}</td>
+                                <td>
+                                    <a href="javascript:;" data-id="{{$item->id}}" class="btn btn-sm btn-primary btn-edit">Edit</a>
+                                    <a href="{{route('leakage.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="10" align="center">No Data</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
