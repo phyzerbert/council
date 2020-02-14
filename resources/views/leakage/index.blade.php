@@ -30,38 +30,38 @@
                 <div class="clearfix">
                     <form action="" method="post" class="form-inline float-left">
                         @csrf
-                        <select name="zone_id" id="filter_zone" class="form-control form-control-sm">
+                        <select name="zone_id" id="filter_zone" class="form-control form-control-sm mt-2">
                             <option disabled selected value="">Select a Zone</option>
                             @foreach ($zones as $item)
                                 <option value="{{$item->id}}" @if($zone_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <select name="woa_id" id="filter_woa" class="form-control form-control-sm ml-md-2">
+                        <select name="woa_id" id="filter_woa" class="form-control form-control-sm ml-md-2 mt-2">
                             <option disabled selected value="">Select a WOA</option>
                             @foreach ($woas as $item)
                                 <option value="{{$item->id}}" @if($woa_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <select name="dma_id" id="filter_dma" class="form-control form-control-sm ml-md-2">
+                        <select name="dma_id" id="filter_dma" class="form-control form-control-sm ml-md-2 mt-2">
                             <option disabled selected value="">Select a DMA</option>
                             @foreach ($dmas as $item)
                                 <option value="{{$item->id}}" @if($dma_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <select name="type_id" id="filter_type" class="form-control form-control-sm ml-md-2">
+                        <select name="type_id" id="filter_type" class="form-control form-control-sm ml-md-2 mt-2">
                             <option disabled selected value="">Select a Type</option>
                             @foreach ($types as $item)
                                 <option value="{{$item->id}}" @if($type_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <select name="stype_id" id="filter_stype" class="form-control form-control-sm ml-md-2">
+                        <select name="stype_id" id="filter_stype" class="form-control form-control-sm ml-md-2 mt-2">
                             <option disabled selected value="">Surface Type</option>
                             @foreach ($stypes as $item)
                                 <option value="{{$item->id}}" @if($stype_id == $item->id) selected @endif>{{$item->name}}</option>
                             @endforeach
                         </select>
-                        <button type="submit" class="btn btn-sm btn-primary ml-2">Search</button>
-                        <button type="button" class="btn btn-sm btn-danger ml-2" id="btn_reset">Reset</button>
+                        <button type="submit" class="btn btn-sm btn-primary ml-2 mt-2">Search</button>
+                        <button type="button" class="btn btn-sm btn-danger ml-2 mt-2" id="btn_reset">Reset</button>
                     </form>
                     <div class="float-right">
                         <a href="{{route('leakage.export')}}" class="btn btn-sm btn-info mb-2"><span class="fa fa-plus"></span> Export</a>
