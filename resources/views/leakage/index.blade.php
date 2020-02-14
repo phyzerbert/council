@@ -1,5 +1,11 @@
 @extends('layouts.master')
-
+@section('style')
+    <style>
+        td, th {
+            white-space: nowrap;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-12">
