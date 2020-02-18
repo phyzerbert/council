@@ -2,7 +2,7 @@
 @section('pricing-header')
     <div class="pricing-header mt-5 px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">{{ config('app.name') }}</h1>
-        <p class="lead">PhpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB. Frequently used operations (managing databases, tables, columns, relations, indexes, users, permissions, etc) can be performed via the user interface, while you still have the ability to directly execute any SQL statement..</p>
+        <p class="lead">Welcome to MyCouncil. Manage all your leakage data from any device and any location.</p>
     </div>
 @endsection
 

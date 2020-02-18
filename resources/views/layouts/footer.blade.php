@@ -7,27 +7,27 @@
         <div class="col-6 col-md">
             <h5>Features</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="javascript:;">Cool stuff</a></li>
-                <li><a class="text-muted" href="javascript:;">Random feature</a></li>
-                <li><a class="text-muted" href="javascript:;">Team feature</a></li>
+                <li><a class="text-muted" href="javascript:;">How it works</a></li>
+                <li><a class="text-muted" href="javascript:;">Trust and Safety</a></li>
+                <li><a class="text-muted" href="javascript:;">Help Centre</a></li>
                 <li><a class="text-muted" href="javascript:;">Stuff for developers</a></li>
-                <li><a class="text-muted" href="javascript:;">Another one</a></li>
-                <li><a class="text-muted" href="javascript:;">Last time</a></li>
+                <li><a class="text-muted" href="javascript:;">Resources</a></li>
+                <li><a class="text-muted" href="javascript:;">Services</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
             <h5>Resources</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="javascript:;">Resource</a></li>
-                <li><a class="text-muted" href="javascript:;">Resource name</a></li>
-                <li><a class="text-muted" href="javascript:;">Another resource</a></li>
-                <li><a class="text-muted" href="javascript:;">Final resource</a></li>
+                <li><a class="text-muted" href="javascript:;">Team</a></li>
+                <li><a class="text-muted" href="javascript:;">Careers</a></li>
+                <li><a class="text-muted" href="javascript:;">Contact</a></li>
+                <li><a class="text-muted" href="javascript:;">Blog</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
             <h5>About</h5>
             <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="javascript:;">Team</a></li>
+                <li><a class="text-muted" href="javascript:;">About</a></li>
                 <li><a class="text-muted" href="javascript:;">Locations</a></li>
                 <li><a class="text-muted" href="javascript:;">Privacy</a></li>
                 <li><a class="text-muted" href="javascript:;">Terms</a></li>

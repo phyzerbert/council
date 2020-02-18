@@ -23,6 +23,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Library</a>
                 <div class="dropdown-menu active" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Zone App</a>
+                    <a class="dropdown-item" href="#">Conservation Report</a>
                     <a class="dropdown-item" href="#">Erro App</a>
                     <a class="dropdown-item" href="#">STOI's</a>
                     <a class="dropdown-item" href="#">QR Manager</a>
