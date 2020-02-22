@@ -81,6 +81,7 @@
                             <th>T4 Complete</th>
                             <th>X</th>
                             <th>Y</th>
+                            <th>Est. Sav</th>
                             <th>Area</th>
                             <th>Comment</th>
                             <th>Date</th>

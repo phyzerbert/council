@@ -80,6 +80,11 @@
                     @endforeach
                 </select>
             </div>
+            
+            <div class="form-group">
+                <label>Est. Saving</label>
+                <textarea class="form-control" name="Est. saving" rows="1" placeholder="Meters cubed"></textarea>
+            </div>
 
             <div class="form-group">
                 <label>Select Surface Type</label>
