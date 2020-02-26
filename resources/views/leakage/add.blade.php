@@ -53,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label>WOA</label>
-                <select class="form-control" name="woa_id">
+                <select class="form-control" name="woa_id" id="woa_id">
                     <option disabled selected value="">-- Choose an option--</option>
                     @foreach ($woas as $item)
                         <option value="{{$item->id}}">{{$item->name}}</option>
@@ -63,10 +63,10 @@
 
             <div class="form-group">
                 <label>Select DMA</label>
-                <select class="form-control" name="dma_id">
+                <select class="form-control" name="dma_id" id="dma_id">
                     <option disabled selected value="">-- Choose an option--</option>
                     @foreach ($dmas as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        <option value="{{$item->id}}" data-id="{{$item->woa_id}}">{{$item->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -186,5 +186,13 @@
             }
             document.getElementById("result").value = num1 / num2;
         }
+        $(document).ready(function() {
+            $("#woa_id").change(function() {
+                let woa_id = $(this).val();
+                console.log(woa_id);
+                $("#dma_id option").hide();
+                $("#dma_id option[data-id='" + woa_id + "']").show();
+            });
+        });
     </script>
 @endsection
