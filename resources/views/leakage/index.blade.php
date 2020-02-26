@@ -124,10 +124,10 @@
                     </tbody>
                 </table>
                 <div class="clearfix">
-                    <div class="pull-left" style="margin: 0;">
+                    <div class="float-left" style="margin: 0;">
                         <p>Total <strong style="color: red">{{ $data->total() }}</strong> Items</p>
                     </div>
-                    <div class="pull-right" style="margin: 0;">
+                    <div class="float-right" style="margin: 0;">
                         {!! $data->links() !!}
                     </div>
                 </div>
