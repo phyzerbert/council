@@ -21,6 +21,7 @@ class CreateLeakagesTable extends Migration
             $table->integer('dma_id')->nullable();
             $table->integer('type_id')->nullable();
             $table->integer('stype_id')->nullable();
+            $table->string('est_saving')->nullable();
             $table->integer('is_t4_completed')->nullable();
             $table->decimal('x', 10, 2)->nullable();
             $table->decimal('y' , 10, 2)->nullable();

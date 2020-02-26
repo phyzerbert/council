@@ -106,6 +106,7 @@
                                 </td>
                                 <td class="x">{{$item->x}}</td>
                                 <td class="y">{{$item->y}}</td>
+                                <td class="est_saving">{{$item->est_saving}}</td>
                                 <td class="area">{{$item->area}}</td>
                                 <td class="comment">{{$item->comment}}</td>
                                 <td>{{date('Y-m-d', strtotime($item->created_at))}}</td>
@@ -117,7 +118,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="10" align="center">No Data</td>
+                                <td colspan="15" align="center">No Data</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -191,6 +192,12 @@
                                         <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Est Saving</label>
+                            <div class="col-md-9">
+                                <input type="text" name="est_saving" class="form-control" placeholder="Merters Cubed" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -305,6 +312,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Est Saving</label>
+                            <div class="col-md-9">
+                                <input type="text" name="est_saving" class="form-control est_saving" placeholder="Merters Cubed" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-md-3 col-form-label">T4 Complete</label>
                             <div class="col-md-9">
                                 <select class="form-control is_t4_completed" name="is_t4_completed">
@@ -380,6 +393,7 @@
                 let type_id = $(this).parents('tr').find('.type').data('id');
                 let stype_id = $(this).parents('tr').find('.stype').data('id');
                 let comment = $(this).parents('tr').find('.comment').text();
+                let est_saving = $(this).parents('tr').find('.est_saving').text();
                 let is_t4_completed = $(this).parents('tr').find('.is_t4_completed').data('value');
                 let x = $(this).parents('tr').find('.x').text();
                 let y = $(this).parents('tr').find('.y').text();
@@ -392,6 +406,7 @@
                 $("#editForm .dma").val(dma_id);
                 $("#editForm .type").val(type_id);
                 $("#editForm .stype").val(stype_id);
+                $("#editForm .est_saving").val(est_saving);
                 $("#editForm .is_t4_completed").val(is_t4_completed);
                 $("#editForm .comment").val(comment);
                 $("#editForm .latitude").val(x);

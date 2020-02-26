@@ -24,6 +24,7 @@ class LeakagesExport implements FromArray, WithHeadings
             $data[$i]['dma'] = $item->dma->name ?? '';
             $data[$i]['type'] = $item->type->name ?? '';
             $data[$i]['stype'] = $item->stype->name ?? '';
+            $data[$i]['est_saving'] = $item->est_saving;
             $data[$i]['is_t4_complete'] = $item->is_t4_complete ? 'Yes' : 'No';
             $data[$i]['comment'] = $item->comment;
             $data[$i]['x'] = $item->x;
@@ -45,6 +46,7 @@ class LeakagesExport implements FromArray, WithHeadings
             'DMA',
             'Type',
             'Surface Type',
+            'Est Sav',
             'T4 Complete',
             'Comment',
             'X',

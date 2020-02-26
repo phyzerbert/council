@@ -15,6 +15,7 @@ class CreateDmasTable extends Migration
     {
         Schema::create('dmas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('woa_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });

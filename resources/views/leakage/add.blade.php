@@ -83,7 +83,7 @@
             
             <div class="form-group">
                 <label>Est. Saving</label>
-                <textarea class="form-control" name="Est. saving" rows="1" placeholder="Meters cubed"></textarea>
+                <input type="text" class="form-control" name="est_saving" placeholder="Meters cubed" />
             </div>
 
             <div class="form-group">
