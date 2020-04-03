@@ -44,7 +44,7 @@
             </div>
             <div class="form-group mt-4">
                 <label>Select Zone</label>
-                <select class="form-control" name="zone_id" required>
+                <select class="form-control" name="zone_id" id="zone_id" required>
                     <option disabled selected value="">-- Choose an option--</option>
                     @foreach ($zones as $item)
                         <option value="{{$item->id}}" @if($zone_id == $item->id) selected @endif>{{$item->name}}</option>
@@ -56,7 +56,7 @@
                 <select class="form-control" name="woa_id" id="woa_id">
                     <option disabled selected value="">-- Choose an option--</option>
                     @foreach ($woas as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        <option value="{{$item->id}}" data-id="{{$item->zone_id}}">{{$item->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -187,11 +187,24 @@
             document.getElementById("result").value = num1 / num2;
         }
         $(document).ready(function() {
+            let zone = "{{$zone_id}}";
+
+            $("#woa_id option").hide();
+            $("#woa_id option[data-id='" + zone + "']").show();
+
+
             $("#woa_id").change(function() {
                 let woa_id = $(this).val();
                 console.log(woa_id);
                 $("#dma_id option").hide();
                 $("#dma_id option[data-id='" + woa_id + "']").show();
+            });
+
+            $("#zone_id").change(function() {
+                let zone_id = $(this).val();
+                console.log(woa_id);
+                $("#woa_id option").hide();
+                $("#woa_id option[data-id='" + zone_id + "']").show();
             });
         });
     </script>

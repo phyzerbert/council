@@ -11,4 +11,8 @@ class Woa extends Model
     public function dmas() {
         return $this->hasMany(Dma::class);
     }
+
+    public function zone() {
+        return $this->belongsTo(Zone::class);
+    }
 }

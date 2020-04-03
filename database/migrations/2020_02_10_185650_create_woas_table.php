@@ -15,6 +15,7 @@ class CreateWoasTable extends Migration
     {
         Schema::create('woas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('zone_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });
