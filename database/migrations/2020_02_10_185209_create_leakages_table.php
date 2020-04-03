@@ -23,8 +23,8 @@ class CreateLeakagesTable extends Migration
             $table->integer('stype_id')->nullable();
             $table->string('est_saving')->nullable();
             $table->integer('is_t4_completed')->nullable();
-            $table->decimal('x', 10, 2)->nullable();
-            $table->decimal('y' , 10, 2)->nullable();
+            $table->decimal('x', 8, 7)->nullable();
+            $table->decimal('y' , 8, 7)->nullable();
             $table->text('comment')->nullable();
             $table->timestamps();
         });
