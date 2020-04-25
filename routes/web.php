@@ -21,3 +21,9 @@ Route::post('/leakage/save', 'HomeController@save')->name('leakage.save');
 Route::post('/leakage/update', 'HomeController@update')->name('leakage.update');
 Route::get('/leakage/delete/{id}', 'HomeController@delete')->name('leakage.delete');
 Route::get('/leakage/export', 'HomeController@export')->name('leakage.export');
+
+Route::get('/mygreenway', 'IndexController@greenway')->name('greenway.index');
+
+Route::post('/employee/create', 'EmployeeController@create')->name('employee.create');
+Route::post('/employee/update', 'EmployeeController@update')->name('employee.update');
+Route::post('/employee/delete/{id}', 'EmployeeController@delete')->name('employee.delete');

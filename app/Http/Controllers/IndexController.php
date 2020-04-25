@@ -11,4 +11,8 @@ class IndexController extends Controller
         $data = Zone::all();
         return view('index', compact('data'));
     }
+    
+    public function greenway(Request $request) {
+        return view('greenway.index');
+    }
 }

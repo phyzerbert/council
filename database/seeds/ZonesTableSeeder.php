@@ -23,7 +23,12 @@ class ZonesTableSeeder extends Seeder
         ]);
         
         Zone::create([
-            'name' => 'Zone3',
+            'name' => 'Zone3 East',
+            'rate' => '25',
+        ]);
+        
+        Zone::create([
+            'name' => 'Zone3 West',
             'rate' => '25',
         ]);
         

@@ -33,7 +33,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="{{route('greenway.index')}}">My Greenway</a>
             </li>            
         </ul>
         <form class="form-inline my-2 my-lg-0">
