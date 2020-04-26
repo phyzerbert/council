@@ -14,7 +14,7 @@ class EmployeeController extends Controller
 
         $data = $mod->orderBy('created_at', 'desc')->get();
 
-        return view('greenway.employee.index', compact('data'));
+        return view('backend.employee', compact('data'));
     }
 
     public function create(Request $request) {

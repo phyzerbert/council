@@ -15,4 +15,9 @@ class IndexController extends Controller
     public function greenway(Request $request) {
         return view('greenway.index');
     }
+
+    public function dashboard(Request $request) {
+        config(['site.page' => 'dashboard']);
+        return view('backend.dashboard');
+    }
 }

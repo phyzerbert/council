@@ -33,3 +33,5 @@ Route::any('/timesheet/index', 'TimesheetController@index')->name('timesheet.ind
 Route::post('/timesheet/create', 'TimesheetController@create')->name('timesheet.create');
 Route::post('/timesheet/update', 'TimesheetController@update')->name('timesheet.update');
 Route::post('/timesheet/delete/{id}', 'TimesheetController@delete')->name('timesheet.delete');
+
+Route::get('/dashboard', 'IndexController@dashboard')->name('dashboard');
