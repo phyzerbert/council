@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('job_title')->nullable();
             $table->string('role')->nullable();
             $table->string('contact_number')->nullable();
+            $table->string('email')->nullable();
             $table->string('reference_number')->nullable();
             $table->timestamps();
         });

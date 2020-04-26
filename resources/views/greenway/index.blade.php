@@ -26,6 +26,9 @@
     </section>
 @endsection
 @section('content')
+    @php
+        $employees = \App\Models\Employee::all();
+    @endphp
     <main role="main">
         <div class="album py-5 bg-light">
             <div class="container">
@@ -64,96 +67,9 @@
                             </svg>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-                                Launch Timesheet modal
+                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#timesheetModal">
+                                Launch Timesheet Modal
                             </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Add Timesheet</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="input-group">
-                                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                                    <option selected>Select Employee</option>
-                                                    <option value="1">Muiris Griffin</option>
-                                                    <option value="2">John Murphy</option>
-                                                    <option value="3">Jane Doe</option>
-                                                    <option value="3">Patrick O'Connor</option>
-                                                    <option value="3">Eoghan O'Keeffe</option>
-                                                </select>
-
-                                            </div>
-                                            <br>
-                                            <div class="input-group">
-                                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                                    <option selected>Select Employee Ref. no.</option>
-                                                    <option value="1">12345</option>
-                                                    <option value="2">123456</option>
-                                                    <option value="3">1234567</option>
-                                                    <option value="2">123456</option>
-                                                    <option value="3">1234567</option>
-                                                </select>
-
-                                            </div>
-
-                                            <br>
-                                            <div class="input-group">
-                                                <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                                    <option selected>Select Work Week</option>
-                                                    <option value="1">Week 1</option>
-                                                    <option value="2">Week 2</option>
-                                                    <option value="3">Week 3</option>
-                                                    <option value="3">Week 4</option>
-                                                    <option value="3">Week 5</option>
-                                                </select>
-
-                                            </div>
-                                            <br>
-                                            <h7>Was Employee absent
-                                                <h7>
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="contractorCheck">
-                                                        <label class="form-check-label" for="defaultCheck1">
-                                                            Yes
-                                                        </label>
-
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="SubconCheck">
-                                                        <label class="form-check-label" for="defaultCheck1">
-                                                            No
-                                                        </label>
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label for="contactNum">Reason for Absence</label>
-                                                        <input type="name" class="form-control" id="contactNum">
-
-                                                    </div>
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label for="contactNum">Assign hours</label>
-                                                        <input type="name" class="form-control" id="contactNum">
-
-                                                    </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="card-body">
                                 <p class="card-text">Update all Timesheets. Add or subtract hours to all ataff members and assign correct T&A for each workweek.</p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -161,7 +77,6 @@
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
                                         <button type="button" class="btn btn-sm btn-outline-danger">View Database</button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -175,30 +90,9 @@
                                 <text x="35%" y="50%" fill="#eceeef" dy=".3em">Daily Report</text>
                             </svg>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalScrollable">
+                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#dailyReportModal">
                                 Launch Daily Report Modal
                             </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="card-body">
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -419,11 +313,124 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
+    </div>    
+
+    <!-- Modal -->
+    <div class="modal fade" id="timesheetModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Timesheet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('timesheet.create')}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="">Emoloyee</label>
+                            <select class="custom-select" name="employee_id" id="modal_employee_id" required>
+                                <option value="">Select Employee</option>
+                                @foreach ($employees as $item)
+                                    <option value="{{$item->id}}" data-ref="{{$item->reference_number}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Emoloyee Reference Number</label>
+                            <input type="text" class="form-control" id="modal_employee_ref" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Work Week</label>
+                            <select class="custom-select" name="work_week" id="work_week" required>
+                                <option selected>Select Work Week</option>
+                                <option value="1">Week 1</option>
+                                <option value="2">Week 2</option>
+                                <option value="3">Week 3</option>
+                                <option value="3">Week 4</option>
+                                <option value="3">Week 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Was Employee Absent</label><br />
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="employee_absent" value="1" checked id="defaultCheckYes">
+                                <label class="form-check-label" for="defaultCheckYes">Yes</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="employee_absent" value="0" id="defaultCheckNo">
+                                <label class="form-check-label" for="defaultCheckNo">No</label>
+                            </div>
+                        </div>                            
+                        <div class="form-group">
+                            <label for="contactNum">Reason for Absence</label>
+                            <input type="text" name="reason_for_absense" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNum">Assign hours</label>
+                            <input type="number" min="0" name="assign_hours" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Daily Report Modal -->
+    <div class="modal fade" id="dailyReportModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Daily Report</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="" method="post">
+                    @csrf                    
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                <label class="form-check-label" for="remember">Remember Me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>        
+            </div>
+        </div>
     </div>
+
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $("#modal_employee_id").change(function(){
+                let ref_no = $(this).children("option:selected").data('ref');
+                $("#modal_employee_ref").val(ref_no);
+            });
+        })
+    </script>
 @endsection
