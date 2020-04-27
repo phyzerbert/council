@@ -1,16 +1,20 @@
-   
+<style>
+    .table-borderless  td {
+        padding: 8px;
+    }
+</style>  
 <div class="card card-body">
     <table class="table table-borderless">
         <tr>
-            <td>Project</td>
+            <td style="font-weight: 600;">Project</td>
             <td>{{$item->project->title ?? ''}}</td>
         </tr>
         <tr>
-            <td>Project Ref.No</td>
+            <td style="font-weight: 600;">Project Ref.No</td>
             <td>{{$item->project->reference_no ?? ''}}</td>
         </tr>
         <tr>
-            <td>Weather</td>
+            <td style="font-weight: 600;">Weather</td>
             <td>
                 @if ($item->weather == 'clear_sunny')
                     Clear / Sunny
@@ -22,7 +26,7 @@
             </td>
         </tr>
         <tr>
-            <td>Temperature</td>
+            <td style="font-weight: 600;">Temperature</td>
             <td>
                 @if ($item->temperature == 0)
                     0 ~ 5°C
@@ -36,7 +40,7 @@
             </td>
         </tr>
         <tr>
-            <td>Wind</td>
+            <td style="font-weight: 600;">Wind</td>
             <td>
                 @if ($item->wind == 25)
                     25 ~ 30 mph
@@ -50,15 +54,15 @@
             </td>
         </tr>
         <tr>
-            <td>Preciptation AM</td>
+            <td style="font-weight: 600;">Preciptation AM</td>
             <td>{{ucwords($item->preciptation_am)}}</td>
         </tr>
         <tr>
-            <td>Preciptation PM</td>
+            <td style="font-weight: 600;">Preciptation PM</td>
             <td>{{ucwords($item->preciptation_pm)}}</td>
         </tr>
         <tr>
-            <td>Additional Comment</td>
+            <td style="font-weight: 600;">Additional Comment</td>
             <td>{{$item->additianal_comment}}</td>
         </tr>
     </table>
@@ -67,19 +71,19 @@
             <h4>Job Workforce - Contractor</h4>
             <table class="table table-borderless">
                 <tr>
-                    <td>Company Name</td>
+                    <td style="font-weight: 600;">Company Name</td>
                     <td>{{$item->contractor_company->name ?? ''}}</td>
                 </tr>
                 <tr>
-                    <td>No. Of Crew</td>
+                    <td style="font-weight: 600;">No. Of Crew</td>
                     <td>{{$item->contractor_no_of_crew}}</td>
                 </tr>
                 <tr>
-                    <td>Total No. Of Hours</td>
+                    <td style="font-weight: 600;">Total No. Of Hours</td>
                     <td>{{$item->contractor_total_no_of_hours}}</td>
                 </tr>
                 <tr>
-                    <td>Additional Comment</td>
+                    <td style="font-weight: 600;">Additional Comment</td>
                     <td>{{$item->contractor_additianal_comment}}</td>
                 </tr>
             </table>
@@ -88,24 +92,24 @@
             <h4>Job Workforce - SubContractor</h4>
             <table class="table table-borderless">
                 <tr>
-                    <td>Company Name</td>
+                    <td style="font-weight: 600;">Company Name</td>
                     <td>{{$item->subcontractor_company->name ?? ''}}</td>
                 </tr>
                 <tr>
-                    <td>No. Of Crew</td>
+                    <td style="font-weight: 600;">No. Of Crew</td>
                     <td>{{$item->subcontractor_no_of_crew}}</td>
                 </tr>
                 <tr>
-                    <td>Total No. Of Hours</td>
+                    <td style="font-weight: 600;">Total No. Of Hours</td>
                     <td>{{$item->subcontractor_total_no_of_hours}}</td>
                 </tr>
                 <tr>
-                    <td>Additional Comment</td>
+                    <td style="font-weight: 600;">Additional Comment</td>
                     <td>{{$item->subcontractor_additianal_comment}}</td>
                 </tr>
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-4">
             <h6>Daily Activities - Describe daily activities/phase of project</h6>
             <p>{{$item->daily_activity}}</p>
             <h4>More Information</h4>
