@@ -11,4 +11,12 @@ class DailyReport extends Model
     public function project(){
         return $this->BelongsTo(Project::class);
     }
+
+    public function contractor_company() {
+        return $this->belongsTo(Company::class, 'contractor_company_id');
+    }
+
+    public function subcontractor_company() {
+        return $this->belongsTo(Company::class, 'subcontractor_company_id');
+    }
 }

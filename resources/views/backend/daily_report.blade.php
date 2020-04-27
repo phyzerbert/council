@@ -18,7 +18,7 @@
                                     <th>Preciptation PM</th>
                                     <th>Completed By</th>
                                     <th>Created At</th>
-                                    {{-- <th style="width: 150px;">Action</th> --}}
+                                    <th style="width: 150px;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,10 +61,10 @@
                                         <td class="preciptation_pm">{{ucwords($item->preciptation_pm)}}</td>
                                         <td class="completed_by">{{ucwords(str_replace('_', ' ', $item->completed_by))}}</td>
                                         <td class="created_at">{{date('Y-m-d', strtotime($item->created_at))}}</td>
-                                        {{-- <td class="py-2">
-                                            <button class="btn btn-sm btn-primary btn-edit" data-id="{{$item->id}}">Edit</button>
-                                            <a href="{{route('employee.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
-                                        </td> --}}
+                                        <td class="py-2">
+                                            <button class="btn btn-sm btn-info btn-view" data-id="{{$item->id}}">View</button>
+                                            {{-- <a href="{{route('employee.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -74,12 +74,39 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="viewModal">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Daily Report</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              
+            </div>      
+          </div>
+        </div>
+      </div>
 @endsection
 
 @section('script')
     <script>
         $(document).ready(function () {
-
+            $(".btn-view").click(function(){
+                let id = $(this).data('id');
+                $.ajax({
+                    url : "{{route('daily_report.view')}}",
+                    method : 'GET',
+                    data : {id : id},
+                    success : function(response){
+                        if(response.success == true) {
+                            $("#viewModal .modal-body").html(response.html);
+                            $("#viewModal").modal();
+                        }                        
+                    }
+                });
+            });
         })
     </script>
 @endsection

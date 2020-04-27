@@ -64,4 +64,15 @@ class DailyReportController extends Controller
 
         return back()->with('success', 'Saved Successfully');
     }
+
+    public function show($id) {
+        $item = DailyReport::find($id);
+        return view('backend.daily_report_show', compact('item'));
+    }
+    
+    public function view(Request $request) {
+        $item = DailyReport::find($request->get('id'));
+        $returnHTML = view('backend.daily_report_show')->with('item', $item)->render();
+        return response()->json(array('success' => true, 'html'=>$returnHTML));
+    }
 }
