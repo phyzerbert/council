@@ -117,7 +117,6 @@
                 let contact_number = $(this).parents('tr').find('.contact_number').text();
                 let email = $(this).parents('tr').find('.email').text();
                 let reference_number = $(this).parents('tr').find('.reference_number').text();
-                $("#editModal input").val('');
                 $("#editModal input:checkbox").attr('checked', false);
                 $("#editModal .id").val(id);
                 $("#editModal .name").val(name);

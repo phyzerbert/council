@@ -49,8 +49,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
-
-                                        <button type="button" class="btn btn-sm btn-outline-danger">View Database</button>
+                                        <a href="{{route('employee.index')}}" class="btn btn-sm btn-outline-danger">View Database</a>
                                     </div>
 
                                 </div>
@@ -75,7 +74,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger">View Database</button>
+                                        <a {{route('employee.index')}} class="btn btn-sm btn-outline-danger">View Database</a>
                                     </div>
                                 </div>
                             </div>
@@ -354,8 +353,8 @@
                                 <option value="1">Week 1</option>
                                 <option value="2">Week 2</option>
                                 <option value="3">Week 3</option>
-                                <option value="3">Week 4</option>
-                                <option value="3">Week 5</option>
+                                <option value="4">Week 4</option>
+                                <option value="5">Week 5</option>
                             </select>
                         </div>
                         <div class="form-group">

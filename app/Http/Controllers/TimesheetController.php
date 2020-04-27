@@ -14,7 +14,7 @@ class TimesheetController extends Controller
 
         $data = $mod->orderBy('created_at', 'desc')->get();
 
-        return view('greenway.timesheet.index', compact('data'));
+        return view('backend.timesheet', compact('data'));
     }
 
     public function create(Request $request) {
@@ -33,12 +33,11 @@ class TimesheetController extends Controller
     public function update(Request $request) {
         $item = Timesheet::find($request->get('id'));
         $item->update([
-            'name'=> $request->get('name'),
-            'contact_number'=> $request->get('contact_number'),
-            'job_title'=> $request->get('job_title'),
-            'role'=> implode(', ', $request->get('role')),
-            'email'=> $request->get('email'),
-            'reference_number'=> $request->get('reference_number'),
+            'employee_id'=> $request->get('employee_id'),
+            'employee_absent'=> $request->get('employee_absent'),
+            'work_week'=> $request->get('work_week'),
+            'reason_for_absense'=> $request->get('reason_for_absense'),
+            'assign_hours'=> $request->get('assign_hours'),
         ]);
         return back()->with('success', 'Updated Successfully');
     }
