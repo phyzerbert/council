@@ -22,7 +22,7 @@
             </a>
         </li>
         <li class="nav-item @if($page == 'daily_report') active @endif">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{route('daily_report.index')}}">
                 <i class="ti-file menu-icon"></i>
                 <span class="menu-title">Daily Report</span>
             </a>

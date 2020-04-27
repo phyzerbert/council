@@ -102,7 +102,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger">View Database</button>
+                                        <a href="{{route('daily_report.index')}}" class="btn btn-sm btn-outline-danger">View Database</a>
                                     </div>
                                 </div>
                             </div>
@@ -655,7 +655,7 @@
                                 <textarea name="more_info_detail_5" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
                             </div>
                         </div>
-                        <div class="card card-body">
+                        <div class="card card-body mt-3">
                             <h4>Health & Safety</h4>
                             <div class="form-group mt-3">
                                 <label for="">Was a site inspection performed today?</label>
@@ -722,6 +722,10 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
             $("#modal_employee_id").change(function(){
                 let ref_no = $(this).children("option:selected").data('ref');
                 $("#modal_employee_ref").val(ref_no);
