@@ -399,7 +399,7 @@
                     <h4 class="modal-title">Daily Report</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{route('daily_report.create')}}" method="post" enctype="multipart/form-data">
                     @csrf                    
                     <div class="modal-body">
                         <div class="card card-body">
@@ -417,7 +417,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <input type="file" class="custom-file-input" name="attachment" id="customFile">
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                             </div>
@@ -538,7 +538,7 @@
                             <div class="row">
                                 <div class="col-12 form-group">                                    
                                     <label for="">Additional Comment</label>
-                                    <textarea name="" id="" rows="3" class="form-control" name="additional_comment"></textarea>
+                                    <textarea name="additional_comment" rows="3" class="form-control" name="additional_comment"></textarea>
                                 </div>
                             </div>
                         </div>
