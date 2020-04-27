@@ -11,6 +11,9 @@
         .btn-modal {
             border-radius: 0;
         }
+        .form-group label {
+            font-weight: 600;
+        }
     </style>
 @endsection
 @section('pricing-header')
@@ -28,6 +31,7 @@
 @section('content')
     @php
         $employees = \App\Models\Employee::all();
+        $companies = \App\Models\Company::all();
     @endphp
     <main role="main">
         <div class="album py-5 bg-light">
@@ -388,7 +392,7 @@
 
     <!-- Daily Report Modal -->
     <div class="modal fade" id="dailyReportModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Daily Report</h4>
@@ -397,24 +401,315 @@
                 <form action="" method="post">
                     @csrf                    
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Name</label>
-                            <input type="text" class="form-control" name="name" />
-                        </div>
-                        <div class="form-group">
-                            <label for="">Username</label>
-                            <input type="text" class="form-control" name="username" />
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                                <label class="form-check-label" for="remember">Remember Me</label>
+                        <div class="card card-body">
+                            <h3>Job Description</h3>
+                            <div class="form-group">
+                                <select name="project" id="daily_report_modal_project" class="form-control" required>
+                                    <option value="">Select Project</option>
+                                    <option value="1">Project 1</option>
+                                    <option value="2">Project 2</option>
+                                    <option value="3">Project 3</option>
+                                </select>
                             </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="project_ref_no" readonly id="daily_report_modal_project_ref_no" />
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-body mt-3">
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Weather Details</h6>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="weather" value="clear_sunny" checked>Clear/Sunny
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="weather" value="partially_cloudy">Partially cloudy
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="weather" value="overcast">Overcast
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h6>Temperature</h6>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="temperature" value="0" checked>0 ~ 5°C
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="temperature" value="5">5 ~ 10°C
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="temperature" value="15">15 ~ 20°C
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="temperature" value="20">20 ~ 25°C
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h6>Wind</h6>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="wind" value="25" checked>25 ~ 30 mph
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="wind" value="30">30 ~ 40 mph
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="wind" value="40">40 ~ 60 mph
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="wind" value="60">60 ~ 80 mph
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h6>Preciptation AM</h6>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_am" value="rain">Rain
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_am" value="snow">Snow
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_am" value="sleet">Sleet
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_am" value="none" checked>None
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h6>Preciptation PM</h6>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_pm" value="rain">Rain
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_pm" value="snow">Snow
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_pm" value="sleet">Sleet
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="preciptation_pm" value="none" checked>None
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="">Additional Comment</label>
+                                    <textarea name="" id="" rows="3" class="form-control" name="additional_comment"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="card card-body">
+                                    <h4>Job Workforce - Contractor</h4>
+                                    <h6>Enter Workforce Details</h6>
+                                    <div class="form-group">
+                                        <label for="">Company Name</label>
+                                        <select name="contractor_company" class="form-control">
+                                            <option value="">-- Choose an option --</option>
+                                            @foreach ($companies as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">No. Of Crew</label>
+                                        <input type="text" class="form-control" name="contractor_no_of_crew">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Total No. Of Hours</label>
+                                        <input type="text" class="form-control" name="contractor_total_no_of_hours">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Additional Comment</label>
+                                        <textarea name="contractor_additional_comment" class="form-control" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card card-body">
+                                    <h4>Job Workforce - SubContractor</h4>
+                                    <h6>Enter Workforce Details</h6>
+                                    <div class="form-group">
+                                        <label for="">Company Name</label>
+                                        <select name="subcontractor_company" class="form-control">
+                                            <option value="">-- Choose an option --</option>
+                                            @foreach ($companies as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">No. Of Crew</label>
+                                        <input type="text" class="form-control" name="subcontractor_no_of_crew">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Total No. Of Hours</label>
+                                        <input type="text" class="form-control" name="subcontractor_total_no_of_hours">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Additional Comment</label>
+                                        <textarea name="subcontractor_additional_comment" class="form-control" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-body mt-3">
+                            <div class="form-group">
+                                <h6>Daily Activities - Describe daily activities/phase of project</h6>
+                                <textarea name="daily_activities" class="form-control" rows="3"></textarea>
+                            </div>
+                            <h4 class="mt-4">More Information</h4>
+                            <div class="form-group mt-3">
+                                <label for="">Was work delayed for any reason?</label>
+                                <select name="more_info_1" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="more_info_detail_1" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Was stoppage order in writing?</label>
+                                <select name="more_info_2" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="more_info_detail_2" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Was verbal instruction recieved?</label>
+                                <select name="more_info_3" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="more_info_detail_3" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Has any written or verbal direction been given to contractor?</label>
+                                <select name="more_info_4" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="more_info_detail_4" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Was any subcontractor scheduled to start or material to arrive but didnt?</label>
+                                <select name="more_info_5" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="more_info_detail_5" rows="2" class="form-control mt-3" placeholder="Detail"></textarea>
+                            </div>
+                        </div>
+                        <div class="card card-body">
+                            <h4>Health & Safety</h4>
+                            <div class="form-group mt-3">
+                                <label for="">Was a site inspection performed today?</label>
+                                <select name="health_safety_1" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Were there any job site hazards observed or incidents that occured today?</label>
+                                <select name="health_safety_2" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="">Were all contractors compliant with CCC H&S regs?</label>
+                                <select name="health_safety_3" id="" class="form-control">
+                                    <option value="" hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                            </div>
+                            <h4 class="mt-3">Visitor Information</h4>
+                            <div class="form-group mt-3">
+                                <label for="">Were there any visitors to site today?</label>
+                                <select name="visitor_information" id="" class="form-control">
+                                    <option hidden>-- Choose an option --</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                    <option value="">N/A</option>
+                                </select>
+                                <textarea name="visitor_information_additional_comment" class="form-control" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="card card-body mt-3">
+                            <h4>Completion/Sign Off</h4>
+                            <label for="">Report completed by?</label>
+                            <select name="completed_by" id="" class="form-control">
+                                <option value="" hidden>-- Choose an option --</option>
+                                <option value="senior_resident_engineer">Senior Resident Engineer</option>
+                                <option value="resident_engineer">Resident Engineer</option>
+                                <option value="clerk_of_works">Clerk Of Works</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-info">Review Form</button>
+                        <button type="submit" class="btn btn-primary">Post To Database</button>
                     </div>
                 </form>        
             </div>
