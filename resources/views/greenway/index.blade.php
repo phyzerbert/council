@@ -74,7 +74,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
-                                        <a {{route('employee.index')}} class="btn btn-sm btn-outline-danger">View Database</a>
+                                        <a {{route('timesheet.index')}} class="btn btn-sm btn-outline-danger">View Database</a>
                                     </div>
                                 </div>
                             </div>
