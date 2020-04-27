@@ -692,7 +692,7 @@
                                     <option value="0">No</option>
                                     <option value="">N/A</option>
                                 </select>
-                                <textarea name="visitor_information_additional_comment" class="form-control" rows="3"></textarea>
+                                <textarea name="visitor_information_additional_comment" class="form-control mt-3" rows="3" placeholder="Additional Comment"></textarea>
                             </div>
                         </div>
                         <div class="card card-body mt-3">
