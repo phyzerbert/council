@@ -32,6 +32,7 @@
     @php
         $employees = \App\Models\Employee::all();
         $companies = \App\Models\Company::all();
+        $projects = \App\Models\Project::all();
     @endphp
     <main role="main">
         <div class="album py-5 bg-light">
@@ -398,7 +399,7 @@
                     <h4 class="modal-title">Daily Report</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     @csrf                    
                     <div class="modal-body">
                         <div class="card card-body">
@@ -406,9 +407,9 @@
                             <div class="form-group">
                                 <select name="project" id="daily_report_modal_project" class="form-control" required>
                                     <option value="">Select Project</option>
-                                    <option value="1">Project 1</option>
-                                    <option value="2">Project 2</option>
-                                    <option value="3">Project 3</option>
+                                    @foreach ($projects as $item)
+                                        <option value="{{$item->id}}" data-ref="{{$item->reference_no}}">{{$item->title}}</option>
+                                    @endforeach                                    
                                 </select>
                             </div>
                             <div class="form-group">
@@ -535,7 +536,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-12 form-group">                                    
                                     <label for="">Additional Comment</label>
                                     <textarea name="" id="" rows="3" class="form-control" name="additional_comment"></textarea>
                                 </div>
@@ -724,6 +725,11 @@
             $("#modal_employee_id").change(function(){
                 let ref_no = $(this).children("option:selected").data('ref');
                 $("#modal_employee_ref").val(ref_no);
+            });
+
+            $("#daily_report_modal_project").change(function(){
+                let ref_no = $(this).children("option:selected").data('ref');
+                $("#daily_report_modal_project_ref_no").val(ref_no);
             });
         })
     </script>
