@@ -37,6 +37,7 @@ Route::get('/timesheet/delete/{id}', 'TimesheetController@delete')->name('timesh
 Route::any('/daily_report/index', 'DailyReportController@index')->name('daily_report.index');
 Route::any('/daily_report/show/{id}', 'DailyReportController@show')->name('daily_report.show');
 Route::get('/daily_report/view', 'DailyReportController@view')->name('daily_report.view');
+Route::post('/daily_report/preview', 'DailyReportController@preview')->name('daily_report.preview');
 Route::post('/daily_report/create', 'DailyReportController@create')->name('daily_report.create');
 Route::post('/daily_report/update', 'DailyReportController@update')->name('daily_report.update');
 Route::get('/daily_report/delete/{id}', 'DailyReportController@delete')->name('daily_report.delete');

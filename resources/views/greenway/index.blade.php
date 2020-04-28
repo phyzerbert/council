@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('greenway.layouts.master')
 
 @section('style')
     <style>
@@ -399,9 +399,9 @@
                     <h4 class="modal-title">Daily Report</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="{{route('daily_report.create')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('daily_report.create')}}" method="post" id="daily_report_form" enctype="multipart/form-data">
                     @csrf                    
-                    <div class="modal-body">
+                    <div class="modal-body" style="max-height: calc(100vh - 186px); overflow-y: auto;">
                         <div class="card card-body">
                             <h3>Job Description</h3>
                             <div class="form-group">
@@ -709,10 +709,24 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-info">Review Form</button>
+                        <button type="button" class="btn btn-info" id="print_daily_report">Review Form</button>
                         <button type="submit" class="btn btn-primary">Post To Database</button>
                     </div>
                 </form>        
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewModal">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Daily Report</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                
+                </div>      
             </div>
         </div>
     </div>
@@ -734,6 +748,24 @@
             $("#daily_report_modal_project").change(function(){
                 let ref_no = $(this).children("option:selected").data('ref');
                 $("#daily_report_modal_project_ref_no").val(ref_no);
+            });
+            $("#print_daily_report").click(function () {
+                $.ajax({
+                    url : "{{route('daily_report.preview')}}",
+                    data : $("#daily_report_form").serialize(),
+                    method : 'POST',
+                    dataType : 'json',
+                    success: function(response){
+                        if(response.success == true) {
+                            $("#viewModal .modal-body").html(response.html);
+                            $("#dailyReportModal").modal('hide');
+                            $("#viewModal").modal('show');
+                        }   
+                    },
+                });
+            });
+            $("#viewModal").on('hide.bs.modal', function () {
+                $("#dailyReportModal").modal('show');
             });
         })
     </script>
