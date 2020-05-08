@@ -121,30 +121,9 @@
                                 <text class="lead text-dark font-weight-bold" x="30%" y="50%" fill="#eceeef" dy=".3em">Expenses Caculator</text>
                             </svg>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalLong">
+                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#expenseModal">
                                 Launch Expenses Caculator
                             </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="card-body">
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -787,6 +766,103 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="modal fade" id="expenseModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Please enter your expense claims</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="" method="POST">
+                    <div class="modal-body">
+                        @csrf
+                        <div class="form-group mb-1">
+                            <label>Start Km</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-car"></i></span>
+                                </div>
+                                <input type="text" name="start_km" class="form-control" required />
+                            </div>
+                            <span class="text-muted">Enter your odometer reding here</span>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>End Km</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-car"></i></span>
+                                </div>
+                                <input type="text" name="end_km" class="form-control" required />
+                            </div>
+                            <span class="text-muted">Enter you End Km here</span>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>Claim Total, Km</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-car"></i></span>
+                                </div>
+                                <input type="text" name="total_km" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>Date</label>
+                            <input type="text" name="date" class="form-control datepicker" required />
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>Start Time</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                </div>
+                                <input type="text" name="start_time" class="form-control" placeholder="eg.11.45" required />
+                            </div>
+                            <span class="text-muted">Enter Start time of your journey here</span>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>End Time</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                </div>
+                                <input type="text" name="end_time" class="form-control" placeholder="eg.17.00" required />
+                            </div>
+                            <span class="text-muted">Enter journey end time here</span>
+                        </div>
+
+                        <div class="form-group mb-1">
+                            <label for="">Subsistence Claim</label>
+                            <div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="subsistence_claim" value="1" checked />Yes
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="subsistence_claim" value="0" />No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label for="">Enter destination and reason for journey here *</label>
+                            <textarea name="reason" rows="3" class="form-control" required></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
     
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
