@@ -18,6 +18,9 @@
     
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script>
+        window.user = "{{Auth::id()}}";
+    </script>
     @yield('style')
 </head>
 <body>

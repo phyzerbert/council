@@ -15,6 +15,7 @@
             font-weight: 600;
         }
     </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @endsection
 @section('pricing-header')
     <section class="jumbotron text-center" id="banner-greenway">
@@ -121,7 +122,7 @@
                                 <text class="lead text-dark font-weight-bold" x="30%" y="50%" fill="#eceeef" dy=".3em">Expenses Caculator</text>
                             </svg>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#expenseModal">
+                            <button type="button" class="btn btn-primary btn-modal" id="btn_expense_modal">
                                 Launch Expenses Caculator
                             </button>
 
@@ -130,7 +131,7 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
-                                        <button type="button" class="btn btn-sm btn-outline-danger">View Database</button>
+                                        <a href="{{route('expense.index')}}" class="btn btn-sm btn-outline-danger">View Database</a>
                                     </div>
                                 </div>
                             </div>
@@ -205,70 +206,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                             <div class="modal fade" id="timesheetModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Timesheet</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{route('timesheet.create')}}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="">Emoloyee</label>
-                            <select class="custom-select" name="employee_id" id="modal_employee_id" required>
-                                <option value="">Select Employee</option>
-                                @foreach ($employees as $item)
-                                    <option value="{{$item->id}}" data-ref="{{$item->reference_number}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Emoloyee Reference Number</label>
-                            <input type="text" class="form-control" id="modal_employee_ref" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Work Week</label>
-                            <select class="custom-select" name="work_week" id="work_week" required>
-                                <option selected>Select Work Week</option>
-                                <option value="1">Week 1</option>
-                                <option value="2">Week 2</option>
-                                <option value="3">Week 3</option>
-                                <option value="4">Week 4</option>
-                                <option value="5">Week 5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Was Employee Absent</label><br />
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="employee_absent" value="1" checked id="defaultCheckYes">
-                                <label class="form-check-label" for="defaultCheckYes">Yes</label>
-                            </div>
-                            <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="employee_absent" value="0" id="defaultCheckNo">
-                                <label class="form-check-label" for="defaultCheckNo">No</label>
-                            </div>
-                        </div>                            
-                        <div class="form-group">
-                            <label for="contactNum">Reason for Absence</label>
-                            <input type="text" name="reason_for_absense" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactNum">Assign hours</label>
-                            <input type="number" min="0" name="assign_hours" class="form-control">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> 
+    
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -346,6 +284,10 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Password</label>
+                                <input type="password" class="form-control" name="password" required />
                             </div>
                             <div class="form-group">
                                 <label for="refno">Create Employee Reference Number</label>
@@ -642,7 +584,7 @@
                             <h4 class="mt-4">More Information</h4>
                             <div class="form-group mt-3">
                                 <label for="">Was work delayed for any reason?</label>
-                                <select name="more_info_1" id="" class="form-control">
+                                <select name="more_info_1" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -652,7 +594,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Was stoppage order in writing?</label>
-                                <select name="more_info_2" id="" class="form-control">
+                                <select name="more_info_2" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -662,7 +604,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Was verbal instruction recieved?</label>
-                                <select name="more_info_3" id="" class="form-control">
+                                <select name="more_info_3" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -672,7 +614,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Has any written or verbal direction been given to contractor?</label>
-                                <select name="more_info_4" id="" class="form-control">
+                                <select name="more_info_4" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -682,7 +624,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Was any subcontractor scheduled to start or material to arrive but didnt?</label>
-                                <select name="more_info_5" id="" class="form-control">
+                                <select name="more_info_5" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -695,7 +637,7 @@
                             <h4>Health & Safety</h4>
                             <div class="form-group mt-3">
                                 <label for="">Was a site inspection performed today?</label>
-                                <select name="health_safety_1" id="" class="form-control">
+                                <select name="health_safety_1" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -704,7 +646,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Were there any job site hazards observed or incidents that occured today?</label>
-                                <select name="health_safety_2" id="" class="form-control">
+                                <select name="health_safety_2" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -713,7 +655,7 @@
                             </div>
                             <div class="form-group mt-3">
                                 <label for="">Were all contractors compliant with CCC H&S regs?</label>
-                                <select name="health_safety_3" id="" class="form-control">
+                                <select name="health_safety_3" class="form-control">
                                     <option value="" hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -723,7 +665,7 @@
                             <h4 class="mt-3">Visitor Information</h4>
                             <div class="form-group mt-3">
                                 <label for="">Were there any visitors to site today?</label>
-                                <select name="visitor_information" id="" class="form-control">
+                                <select name="visitor_information" class="form-control">
                                     <option hidden>-- Choose an option --</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
@@ -735,7 +677,7 @@
                         <div class="card card-body mt-3">
                             <h4>Completion/Sign Off</h4>
                             <label for="">Report completed by?</label>
-                            <select name="completed_by" id="" class="form-control">
+                            <select name="completed_by" class="form-control">
                                 <option value="" hidden>-- Choose an option --</option>
                                 <option value="senior_resident_engineer">Senior Resident Engineer</option>
                                 <option value="resident_engineer">Resident Engineer</option>
@@ -777,7 +719,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="POST">
+                <form action="{{route('expense.create')}}" method="POST">
                     <div class="modal-body">
                         @csrf
                         <div class="form-group mb-1">
@@ -811,7 +753,7 @@
                         </div>
                         <div class="form-group mb-1">
                             <label>Date</label>
-                            <input type="text" name="date" class="form-control datepicker" required />
+                            <input type="text" name="date" class="form-control datepicker" id="expense_datepicker" required />
                         </div>
                         <div class="form-group mb-1">
                             <label>Start Time</label>
@@ -905,6 +847,7 @@
 @endsection
 
 @section('script')
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(document).ready(function () {
             $(".custom-file-input").on("change", function() {
@@ -938,6 +881,18 @@
             $("#viewModal").on('hide.bs.modal', function () {
                 $("#dailyReportModal").modal('show');
             });
+
+            $("#expense_datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+            $("#btn_expense_modal").click(function(){
+                if(!window.user){
+                    alert('Please login and try again');
+                    window.location.href = '/login';
+                } else {
+                    $("#expenseModal").modal();
+                }
+            })
         })
     </script>
+    
+   
 @endsection

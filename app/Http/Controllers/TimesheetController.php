@@ -20,7 +20,7 @@ class TimesheetController extends Controller
     public function create(Request $request) {
         
         Timesheet::create([
-            'employee_id'=> $request->get('employee_id'),
+            'user_id'=> $request->get('employee_id'),
             'employee_absent'=> $request->get('employee_absent'),
             'work_week'=> $request->get('work_week'),
             'reason_for_absense'=> $request->get('reason_for_absense'),
@@ -33,7 +33,7 @@ class TimesheetController extends Controller
     public function update(Request $request) {
         $item = Timesheet::find($request->get('id'));
         $item->update([
-            'employee_id'=> $request->get('employee_id'),
+            'user_id'=> $request->get('employee_id'),
             'employee_absent'=> $request->get('employee_absent'),
             'work_week'=> $request->get('work_week'),
             'reason_for_absense'=> $request->get('reason_for_absense'),

@@ -42,4 +42,9 @@ Route::post('/daily_report/create', 'DailyReportController@create')->name('daily
 Route::post('/daily_report/update', 'DailyReportController@update')->name('daily_report.update');
 Route::get('/daily_report/delete/{id}', 'DailyReportController@delete')->name('daily_report.delete');
 
+Route::any('/expense/index', 'ExpenseController@index')->name('expense.index');
+Route::post('/expense/create', 'ExpenseController@create')->name('expense.create');
+Route::post('/expense/approve/{id}', 'ExpenseController@approve')->name('expense.approve');
+Route::get('/expense/delete/{id}', 'ExpenseController@delete')->name('expense.delete');
+
 Route::get('/dashboard', 'IndexController@dashboard')->name('dashboard');

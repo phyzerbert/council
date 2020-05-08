@@ -19,6 +19,9 @@
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        window.user = "{{Auth::id()}}";
+    </script>
     @yield('style')
 </head>
 <body>
@@ -31,7 +34,8 @@
             @yield('content')
         </div>
     </div>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>    
     @yield('script')
+
 </body>
 </html>

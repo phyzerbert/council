@@ -23,6 +23,7 @@ class CreateExpensesTable extends Migration
             $table->integer('end_km')->nullable();
             $table->integer('total_km')->nullable();
             $table->boolean('subsistence_claim')->nullable();
+            $table->integer('status')->default(0);
             $table->text('reason')->nullable();
             $table->timestamps();
         });

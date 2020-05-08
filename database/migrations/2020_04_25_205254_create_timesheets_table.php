@@ -15,7 +15,7 @@ class CreateTimesheetsTable extends Migration
     {
         Schema::create('timesheets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('employee_id')->nullable();
+            $table->integer('user_id')->nullable();
             $table->integer('employee_absent')->default(0);
             $table->integer('work_week')->nullable();
             $table->string('reason_for_absense')->nullable();
