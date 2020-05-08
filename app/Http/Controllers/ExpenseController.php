@@ -14,8 +14,11 @@ class ExpenseController extends Controller
         $this->middleware('auth');
     }
     public function index(Request $request) {
+        config(['site.page' => 'expense']);
         $mod = new Expense();
-
+        if(!Auth::user()->is_admin) {
+            $mod = $mod->where('user_id', Auth::id());
+        }
         $data = $mod->orderBy('created_at', 'desc')->paginate(10);
         return view('backend.expense', compact('data'));
     }
@@ -34,6 +37,21 @@ class ExpenseController extends Controller
             'reason' => $request->get('reason'),
         ]);
         return back()->with('success', 'Created Successfully');
+    }
+
+    public function update(Request $request) {
+        $item = Expense::find($request->get('id'));
+        $item->update([
+            'start_km' => $request->get('start_km'),
+            'end_km' => $request->get('end_km'),
+            'total_km' => $request->get('total_km'),
+            'date' => $request->get('date'),
+            'start_time' => $request->get('start_time'),
+            'end_time' => $request->get('end_time'),
+            'subsistence_claim' => $request->get('subsistence_claim'),
+            'reason' => $request->get('reason'),
+        ]);
+        return back()->with('success', 'Updated Successfully');
     }
 
     public function approve($id) {

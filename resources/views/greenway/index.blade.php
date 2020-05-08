@@ -728,7 +728,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-car"></i></span>
                                 </div>
-                                <input type="text" name="start_km" class="form-control" required />
+                                <input type="number" name="start_km" id="expense_start_km" class="form-control" required />
                             </div>
                             <span class="text-muted">Enter your odometer reding here</span>
                         </div>
@@ -738,7 +738,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-car"></i></span>
                                 </div>
-                                <input type="text" name="end_km" class="form-control" required />
+                                <input type="number" name="end_km" id="expense_end_km" class="form-control" required />
                             </div>
                             <span class="text-muted">Enter you End Km here</span>
                         </div>
@@ -748,7 +748,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-car"></i></span>
                                 </div>
-                                <input type="text" name="total_km" class="form-control" required />
+                                <input type="number" name="total_km" id="expense_total_km" class="form-control" required />
                             </div>
                         </div>
                         <div class="form-group mb-1">
@@ -890,7 +890,17 @@
                 } else {
                     $("#expenseModal").modal();
                 }
-            })
+            });
+            $("#expense_start_km").change(function () {
+                let start = $(this).val();
+                let end = $("#expense_end_km").val();
+                $("#expense_total_km").val(end - start);
+            });
+            $("#expense_end_km").change(function () {
+                let end = $(this).val();
+                let start = $("#expense_start_km").val();
+                $("#expense_total_km").val(end - start);
+            });
         })
     </script>
     

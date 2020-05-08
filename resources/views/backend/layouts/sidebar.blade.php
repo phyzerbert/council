@@ -27,6 +27,12 @@
                 <span class="menu-title">Daily Report</span>
             </a>
         </li>
+        <li class="nav-item @if($page == 'expense') active @endif">
+            <a class="nav-link" href="{{route('expense.index')}}">
+                <i class="ti-file menu-icon"></i>
+                <span class="menu-title">Expense</span>
+            </a>
+        </li>
         {{-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="false" aria-controls="editors">
                 <i class="ti-eraser menu-icon"></i>

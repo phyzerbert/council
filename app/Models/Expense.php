@@ -8,7 +8,7 @@ class Expense extends Model
 {
     protected $guarded = [];
 
-    public function employee() {
-        return $this->belongsTo(Employee::class);
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 }
