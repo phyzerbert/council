@@ -6,9 +6,10 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body table-responsive">
+                        <h3><i class="far fa-file-alt"></i> Daily Report Database</h3>
                         <table class="table table-bordered">
-                            <thead>
-                                <tr>
+                            <thead >
+                                <tr class="thead-light">
                                     <th>#</th>
                                     <th>Project</th>
                                     <th>Weather</th>
@@ -17,7 +18,7 @@
                                     <th>Preciptation AM</th>
                                     <th>Preciptation PM</th>
                                     <th>Completed By</th>
-                                    <th>Created At</th>
+                                    <th>Created On</th>
                                     <th style="width: 150px;">Action</th>
                                 </tr>
                             </thead>
@@ -63,12 +64,26 @@
                                         <td class="created_at">{{date('Y-m-d', strtotime($item->created_at))}}</td>
                                         <td class="py-2">
                                             <button class="btn btn-sm btn-info btn-view" data-id="{{$item->id}}">View</button>
+                                            <button class="btn btn-sm btn-info btn-danger" data-id="{{$item->id}}">Delete
                                             {{-- <a href="{{route('employee.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a> --}}
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        <nav>
+    <ul class="pagination">
+        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+</nav>
                     </div>
                 </div>
             </div>

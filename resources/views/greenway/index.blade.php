@@ -20,13 +20,16 @@
     <section class="jumbotron text-center" id="banner-greenway">
         <div class="container">
             <h1>Midleton to Youghal Greenway</h1>
-            <p class="lead text-dark font-weight-bold">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p class="lead text-dark font-weight-bold">24km of Cylce Lanes and Walkways through the heart of East Cork.</p> <p class="lead text-dark font-weight-bold">A We are Cork inititive</p>
             <p>
-                <a href="#" class="btn btn-primary my-2">Go to APP Library</a>
-                <a href="{{route('home')}}" class="btn btn-secondary my-2">Home</a>
+                <a href="#" class="btn btn-success my-2">Go to Dashboard</a>
+                <a href="{{route('home')}}" class="btn btn-primary my-4">Home</a>
             </p>
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <
         </div>
     </section>
+   
 @endsection
 @section('content')
     @php
@@ -34,6 +37,7 @@
         $companies = \App\Models\Company::all();
         $projects = \App\Models\Project::all();
     @endphp
+   
     <main role="main">
         <div class="album py-5 bg-light">
             <div class="container">
@@ -43,10 +47,10 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Employee Register</text>
+                                <text class="lead text-dark font-weight-bold" x="28%" y="50%" fill="#eceeef" dy=".5em">Employee Register</text>
                             </svg>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#addNewEmployeeModal">
+                            <button  type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#addNewEmployeeModal">
                                 Add New Employee
                             </button>
                             <div class="card-body">
@@ -67,15 +71,15 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="30%" y="50%" fill="#eceeef" dy=".3em">Timesheets</text>
+                                <text class="lead text-dark font-weight-bold" x="32%" y="50%" fill="#eceeef" dy=".3em">Timesheets</text>
                             </svg>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#timesheetModal">
+                            <button   type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#timesheetModal">
                                 Launch Timesheet Modal
                             </button>
                             <div class="card-body">
-                                <p class="card-text">Update all Timesheets. Add or subtract hours to all ataff members and assign correct T&A for each workweek.</p>
+                                <p class="card-text"><i class="far fa-user"></i>Update all Timesheets. Add or subtract hours to all ataff members and assign correct T&A for each workweek.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
@@ -91,14 +95,14 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Daily Report</text>
+                                <text class="lead text-dark font-weight-bold" x="31%" y="50%" fill="#eceeef" dy=".3em">Daily Report</text>
                             </svg>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#dailyReportModal">
                                 Launch Daily Report Modal
                             </button>
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Launch thr daily report modal to create a daily report logging any work delays long with project progress.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-primary">Go to App</button>
@@ -114,11 +118,11 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Health & Safety</text>
+                                <text class="lead text-dark font-weight-bold" x="30%" y="50%" fill="#eceeef" dy=".3em">Expenses Caculator</text>
                             </svg>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-                                Health & Safety Checksheet
+                                Launch Expenses Caculator
                             </button>
 
                             <!-- Modal -->
@@ -159,11 +163,11 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                <text class="lead text-dark font-weight-bold" x="39%" y="50%" fill="#eceeef" dy=".3em">STOI's</text>
                             </svg>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-                                Launch demo modal
+                                Launch STOI Modal
                             </button>
 
                             <!-- Modal -->
@@ -204,11 +208,11 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#55595c" />
-                                <text x="35%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                <text class="lead text-dark font-weight-bold" x="35%" y="50%" fill="#eceeef" dy=".3em">Form 6</text>
                             </svg>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-                                Launch demo modal
+                                Launch Form 6 modal
                             </button>
 
                             <!-- Modal -->
@@ -222,7 +226,70 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                             <div class="modal fade" id="timesheetModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add Timesheet</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('timesheet.create')}}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="">Emoloyee</label>
+                            <select class="custom-select" name="employee_id" id="modal_employee_id" required>
+                                <option value="">Select Employee</option>
+                                @foreach ($employees as $item)
+                                    <option value="{{$item->id}}" data-ref="{{$item->reference_number}}">{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Emoloyee Reference Number</label>
+                            <input type="text" class="form-control" id="modal_employee_ref" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Work Week</label>
+                            <select class="custom-select" name="work_week" id="work_week" required>
+                                <option selected>Select Work Week</option>
+                                <option value="1">Week 1</option>
+                                <option value="2">Week 2</option>
+                                <option value="3">Week 3</option>
+                                <option value="4">Week 4</option>
+                                <option value="5">Week 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Was Employee Absent</label><br />
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="employee_absent" value="1" checked id="defaultCheckYes">
+                                <label class="form-check-label" for="defaultCheckYes">Yes</label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="employee_absent" value="0" id="defaultCheckNo">
+                                <label class="form-check-label" for="defaultCheckNo">No</label>
+                            </div>
+                        </div>                            
+                        <div class="form-group">
+                            <label for="contactNum">Reason for Absence</label>
+                            <input type="text" name="reason_for_absense" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNum">Assign hours</label>
+                            <input type="number" min="0" name="assign_hours" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -249,17 +316,7 @@
 
     </main>
 
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-
-            </p>
-            <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-            <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
-
-        </div>
-    </footer>
+    
 
     
 
@@ -730,6 +787,44 @@
             </div>
         </div>
     </div>
+    
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <img class="mb-2" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="javascript:;">How it works</a></li>
+                <li><a class="text-muted" href="javascript:;">Trust and Safety</a></li>
+                <li><a class="text-muted" href="javascript:;">Help Centre</a></li>
+                <li><a class="text-muted" href="javascript:;">Stuff for developers</a></li>
+                <li><a class="text-muted" href="javascript:;">Resources</a></li>
+                <li><a class="text-muted" href="javascript:;">Services</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="javascript:;">Team</a></li>
+                <li><a class="text-muted" href="javascript:;">Careers</a></li>
+                <li><a class="text-muted" href="javascript:;">Contact</a></li>
+                <li><a class="text-muted" href="javascript:;">Blog</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="javascript:;">About</a></li>
+                <li><a class="text-muted" href="javascript:;">Locations</a></li>
+                <li><a class="text-muted" href="javascript:;">Privacy</a></li>
+                <li><a class="text-muted" href="javascript:;">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
 
 @endsection
 

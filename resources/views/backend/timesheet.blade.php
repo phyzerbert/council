@@ -9,8 +9,9 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body table-responsive">
+                        <h3><i class="fa fa-history"></i> Timesheet Database</h3>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="thead-light">
                                 <tr>
                                     <th>#</th>
                                     <th>Employee</th>
@@ -43,9 +44,22 @@
                                             <a href="{{route('timesheet.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
+    
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        <nav>
+    <ul class="pagination">
+        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+</nav>
                     </div>
                 </div>
             </div>

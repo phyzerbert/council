@@ -6,9 +6,10 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body table-responsive">
+                        <h3><i class="fa fa-user"></i> Employee Database</h3>
                         <table class="table table-bordered">
-                            <thead>
-                                <tr>
+                            <thead >
+                                <tr class="thead-light" >
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Job Title</th>
@@ -34,14 +35,29 @@
                                             <a href="{{route('employee.delete', $item->id)}}" class="btn btn-sm btn-danger" onclick="return window.confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
+                            
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        <nav>
+    <ul class="pagination">
+        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+</nav>
+         
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
     <div class="modal fade" id="editModal">
         <div class="modal-dialog" role="document">
@@ -104,6 +120,7 @@
             </div>
         </div>
     </div> 
+   
 @endsection
 
 @section('script')
@@ -133,4 +150,5 @@
             })
         })
     </script>
+ 
 @endsection
