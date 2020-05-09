@@ -34,7 +34,7 @@
 @endsection
 @section('content')
     @php
-        $employees = \App\Models\Employee::all();
+        $employees = \App\User::where('is_admin', 0)->get();
         $companies = \App\Models\Company::all();
         $projects = \App\Models\Project::all();
     @endphp

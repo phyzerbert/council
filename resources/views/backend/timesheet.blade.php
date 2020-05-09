@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $employees = \App\Models\Employee::all();
+        $employees = \App\User::where('is_admin', 0)->get();
     @endphp
     <div class="content-wrapper">
         <div class="row">
@@ -27,8 +27,8 @@
                                 @foreach ($data as $item)                                    
                                     <tr>
                                         <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
-                                        <td class="employee" data-id="{{$item->employee_id}}">{{$item->employee->name ?? ''}}</td>
-                                        <td class="employee_ref_no">{{$item->employee->reference_number ?? ''}}</td>
+                                        <td class="employee" data-id="{{$item->employee_id}}">{{$item->user->name ?? ''}}</td>
+                                        <td class="employee_ref_no">{{$item->user->reference_number ?? ''}}</td>
                                         <td class="employee_absent py-2" data-value="{{$item->employee_absent}}">
                                             @if($item->employee_absent)
                                                 <span class="badge badge-primary">Yes</span>
