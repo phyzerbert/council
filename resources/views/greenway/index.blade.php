@@ -753,7 +753,7 @@
                         </div>
                         <div class="form-group mb-1">
                             <label>Date</label>
-                            <input type="text" name="date" class="form-control datepicker" id="expense_datepicker" required />
+                            <input type="text" name="date" class="form-control datepicker" id="expense_datepicker" autocomplete="off" required />
                         </div>
                         <div class="form-group mb-1">
                             <label>Start Time</label>

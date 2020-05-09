@@ -26,7 +26,7 @@
                             <tbody>
                                 @foreach ($data as $item)                                    
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="employee" data-id="{{$item->employee_id}}">{{$item->employee->name ?? ''}}</td>
                                         <td class="employee_ref_no">{{$item->employee->reference_number ?? ''}}</td>
                                         <td class="employee_absent py-2" data-value="{{$item->employee_absent}}">
@@ -48,18 +48,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <br>
-                        <nav>
-    <ul class="pagination">
-        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
-        <li class="page-item"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item"><a href="#" class="page-link">3</a></li>
-        <li class="page-item"><a href="#" class="page-link">4</a></li>
-        <li class="page-item"><a href="#" class="page-link">5</a></li>
-        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-    </ul>
-</nav>
+                        <div class="clearfix mt-2">
+                            <div class="float-left" style="margin: 0;">
+                                <p>Total <strong style="color: red">{{ $data->total() }}</strong> Items</p>
+                            </div>
+                            <div class="float-right" style="margin: 0;">
+                                {!! $data->appends([])->links() !!}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

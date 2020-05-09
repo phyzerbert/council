@@ -12,7 +12,7 @@ class DailyReportController extends Controller
         config(['site.page' => 'daily_report']);
         $mod = new DailyReport();
 
-        $data = $mod->orderBy('created_at', 'desc')->get();
+        $data = $mod->orderBy('created_at', 'desc')->paginate(10);
         return view('backend.daily_report', compact('data'));
     }
 

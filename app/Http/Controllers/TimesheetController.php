@@ -12,7 +12,7 @@ class TimesheetController extends Controller
         config(['site.page' => 'timesheet']);
         $mod = new Timesheet();
 
-        $data = $mod->orderBy('created_at', 'desc')->get();
+        $data = $mod->orderBy('created_at', 'desc')->paginate(10);
 
         return view('backend.timesheet', compact('data'));
     }

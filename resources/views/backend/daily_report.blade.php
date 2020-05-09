@@ -25,7 +25,7 @@
                             <tbody>
                                 @foreach ($data as $item)                                    
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="project_id" data-id="{{$item->project_id}}">{{$item->project->title ?? ''}}</td>
                                         <td class="weather">
                                             @if ($item->weather == 'clear_sunny')
@@ -71,8 +71,15 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
-                        
+                        </table>                        
+                        <div class="clearfix mt-2">
+                            <div class="float-left" style="margin: 0;">
+                                <p>Total <strong style="color: red">{{ $data->total() }}</strong> Items</p>
+                            </div>
+                            <div class="float-right" style="margin: 0;">
+                                {!! $data->appends([])->links() !!}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

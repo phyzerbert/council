@@ -23,7 +23,7 @@
                             <tbody>
                                 @foreach ($data as $item)                                    
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="name">{{$item->name}}</td>
                                         <td class="job_title">{{$item->job_title}}</td>
                                         <td class="role" data-value="{{$item->role}}">{{ucwords(str_replace('_', ' ', $item->role)) }}</td>
@@ -39,7 +39,14 @@
                                 @endforeach
                             </tbody>
                         </table>
-         
+                        <div class="clearfix mt-2">
+                            <div class="float-left" style="margin: 0;">
+                                <p>Total <strong style="color: red">{{ $data->total() }}</strong> Items</p>
+                            </div>
+                            <div class="float-right" style="margin: 0;">
+                                {!! $data->appends([])->links() !!}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
